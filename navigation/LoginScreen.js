@@ -29,7 +29,7 @@ const LoginScreen = () => {
 
             <Image
                 style={styles.logo}
-                source={require('/home/boroeurn/Desktop/React Native/SalonClone/assets/splash.png')} // Replace with the path to your logo image
+                source={require('../assets/splash.png')}
             />
             <View style={styles.inputView}>
                 <TextInput
@@ -48,13 +48,14 @@ const LoginScreen = () => {
                     onChangeText={(text) => setState({ ...state, password: text })}
                 />
             </View>
+            <TouchableOpacity onPress={onPressLogin} style={styles.loginBtn}>
+                <Text style={styles.loginText}>LOGIN</Text>
+            </TouchableOpacity>
 
             <TouchableOpacity onPress={onPressForgotPassword}>
                 <Text style={styles.forgotAndSignUpText}>Forgot Password?</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={onPressLogin} style={styles.loginBtn}>
-                <Text style={styles.loginText}>LOGIN</Text>
-            </TouchableOpacity>
+
 
             <View style={{ flexDirection: 'row', alignItems: 'center', paddingTop: 20 }}>
                 <View style={{ flex: 1, height: 1, backgroundColor: '#003f5c', marginLeft: 10 }} />
@@ -63,7 +64,29 @@ const LoginScreen = () => {
                 </View>
                 <View style={{ flex: 1, height: 1, backgroundColor: '#003f5c', marginRight: 10 }} />
             </View>
+            <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 20 }}>
+                <TouchableOpacity onPress={onPressLogin} style={styles.retangle}>
+                    <Image
+                        style={styles.loginWithSocial}
+                        source={require('../assets/facebook_logo.png')}
+                    />
+                    <Text style={styles.textSocial}>Login with Facebook</Text>
 
+                </TouchableOpacity>
+                <TouchableOpacity onPress={onPressLogin} style={styles.retangle}>
+                    <Image
+                        style={styles.loginWithSocial}
+                        source={require('../assets/google_logo.png')}
+                    />
+                    <Text style={styles.textSocial}>Login with Google</Text>
+
+                </TouchableOpacity>
+                {/* <Image
+                style={styles.loginWithSocial}
+                source={require('../assets/facebook_logo.png')}
+            /> */}
+
+            </View>
 
         </View>
     );
@@ -82,7 +105,7 @@ const styles = StyleSheet.create({
         marginBottom: 40,
     },
     inputView: {
-        width: '80%',
+        width: '90%',
         backgroundColor: 'white',
         borderRadius: 10,
         height: 50,
@@ -99,21 +122,48 @@ const styles = StyleSheet.create({
         fontSize: 11,
     },
     loginBtn: {
-        width: '80%',
+        width: '90%',
         backgroundColor: '#134286',
         borderRadius: 10,
         height: 50,
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 40,
-        marginBottom: 10,
+        marginTop: 10,
+        marginBottom: 40,
     },
     loginText: {
         color: 'white',
+        fontSize: 10,
     },
     logo: {
         width: 100,
         height: 100,
+        margin: 20,
+    },
+    loginWithSocial: {
+        width: 30,
+        height: 30,
+        margin: 2,
+    },
+    retangle: {
+        width: '40%',
+        backgroundColor: 'white',
+        height: 40,
+        borderRadius: 10,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: 10,
+
+    },
+    text: {
+        fontSize: 10,
+        color: 'white'
+    },
+    textSocial: {
+        color: '#134286',
+        fontSize: 10,
+
     }
 });
 

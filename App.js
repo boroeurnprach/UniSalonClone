@@ -4,7 +4,7 @@ import LoginScreen from './navigation/LoginScreen';
 
 function App() {
   return (
-    <LoginScreen />
+    <MainContainer />
   );
 }
 export default App;
